@@ -23,12 +23,9 @@ contract Movie {
     }
 
     function fundOrBuyMovie(uint256 index) external {
-        moviesFundedAndBought[numberMovieFundedBought].movieName = moviesRequest[index].movieName;
-        moviesFundedAndBought[numberMovieFundedBought].directorName = moviesRequest[index].directorName;
-        moviesFundedAndBought[numberMovieFundedBought].description = moviesRequest[index].description;
-        moviesFundedAndBought[numberMovieFundedBought].fundNeeded = moviesRequest[index].fundNeeded;
-
-        numberMovieFundedBought = numberMovieFundedBought + 1;
+        movieDeatilsRequest memory temp = movieDeatilsRequest(moviesRequest[index].movieName,
+        moviesRequest[index].directorName,moviesRequest[index].description,moviesRequest[index].fundNeeded);
+        moviesFundedAndBought[msg.sender].push(temp);
     }
     
     struct movieDeatilsRequest{
