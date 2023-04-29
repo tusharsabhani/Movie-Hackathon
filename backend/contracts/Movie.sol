@@ -9,7 +9,6 @@ contract Movie {
     mapping(uint => movieDeatilsRequest) public moviesRequest;
     mapping(address => movieDeatilsRequest[]) public moviesFundedAndBought;
     uint256 numberMovieDetails;
-    uint256 numberMovieFundedBought;
 
     function saveMovieDetailsRequest(string memory movieName, string memory directorName,
                                     string memory description, uint256 fundNeeded) external {
